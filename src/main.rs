@@ -1,26 +1,24 @@
 use dioxus:: prelude::*;
-use dioxus_router::prelude::*;
+// use dioxus_router::prelude::*;
 
 mod components;
 mod pages;
-mod user;
+mod database;
 
 use components::route::Route;
 
-
 fn main() {
    
-    dioxus::launch(App);
-    
-    
+    dioxus::launch(app);
+        
 }
    
 
-
 #[component]
-fn App() -> Element {
+fn app() -> Element {
 
     rsx!{
+        document::Stylesheet { href: asset!("/assets/tailwind.css") }
         Router::<Route> {
         }
     }

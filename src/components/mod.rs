@@ -1,2 +1,3 @@
 pub mod route;
-pub mod styling;
+
+pub mod navigation;
