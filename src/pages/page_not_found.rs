@@ -8,5 +8,6 @@ pub fn PageNotFound()->Element {
         h3 { class: "text-center ",
             text { "halaman tidak di temukan" }
         }
+        
     }
 }

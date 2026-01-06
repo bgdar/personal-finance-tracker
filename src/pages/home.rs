@@ -1,12 +1,12 @@
-
 use dioxus::prelude::*;
-use dioxus_free_icons::{Icon,icons::fa_solid_icons::{FaUser,FaBitcoinSign},
-icons::bs_icons::{BsTrashFill,BsArrowBarDown}};
+use dioxus_free_icons::{
+    icons::bs_icons::{BsArrowBarDown, BsTrashFill},
+    icons::fa_solid_icons::{FaBitcoinSign, FaUser},
+    Icon,
+};
 
 //component
 use crate::components::navigation::Navigation;
-
-
 
 #[derive(Clone, PartialEq)]
 enum MenuIcon {
@@ -35,6 +35,7 @@ fn MenuComponent(menu_items: Signal<Vec<MenuType>>) -> Element {
                                 height: 20,
                                 fill: "currentColor",
                             }
+
                         },
                         MenuIcon::Withdraw => rsx! {
                             Icon {
@@ -52,23 +53,22 @@ fn MenuComponent(menu_items: Signal<Vec<MenuType>>) -> Element {
     }
 }
 
-
-
 #[component]
-pub fn Home()->Element{
+pub fn Home() -> Element {
+    let menu = use_signal(|| {
+        vec![
+            MenuType {
+                name: "transfer".to_string(),
+                icon: MenuIcon::Transfer,
+            },
+            MenuType {
+                name: "tarik tunai".to_string(),
+                icon: MenuIcon::Withdraw,
+            },
+        ]
+    });
 
-    let menu = use_signal(||vec![
-        MenuType {
-            name: "transfer".to_string(),
-            icon: MenuIcon::Transfer,
-        },
-        MenuType {
-            name: "tarik tunai".to_string(),
-            icon: MenuIcon::Withdraw,
-        },
-    ]);
-
-    rsx!{
+    rsx! {
         main { class: "h-screen w-screen bg-[#d9d9d9] relative",
             // logo bagian utama paling atas
             div { id: "header", class: "flex",
@@ -109,7 +109,6 @@ pub fn Home()->Element{
             }
             // bagian menu menu dan chard
             div { class: "flex flex-col md:flex-row items-center justify-center gap-4",
-
                 div { class: "border-2 bg-[#ffffff] rounded-lg p-4 shadow-md w-[80%] md:w-[40%]",
                     p { "chard" }
                 }
@@ -121,6 +120,4 @@ pub fn Home()->Element{
         }
         Navigation {}
     }
-       
 }
-

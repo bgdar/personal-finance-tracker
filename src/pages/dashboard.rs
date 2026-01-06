@@ -46,7 +46,7 @@ rsx! {
             Link {
                 to: Route::Home {},
                 class: "bg-[#1c1c1c] text-white px-6 py-2 rounded-full shadow hover:bg-gray-800 transition-colors duration-300",
-                "Logout"
+                "home"
             }
         }
     }

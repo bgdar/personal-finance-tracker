@@ -28,6 +28,7 @@ pub fn Wallet()->Element {
                 p { "Wallet content goes here" }
             }
         }
+        // navigasi
         Navigation {}
     }
 }

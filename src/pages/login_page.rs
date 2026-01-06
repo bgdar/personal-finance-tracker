@@ -1,36 +1,30 @@
-
-use dioxus::{ html::{ u::text_size_adjust}, prelude::*};
+use dioxus::{html::u::text_size_adjust, prelude::*};
 
 use crate::components::route::Route;
 
- struct HandleData {
+struct HandleData {
     email: String,
     password: String,
-    username:String ,
- }
+    username: String,
+}
 
-
-
- /// Fungsi untuk menangani data input dari form login
- /// sekarang ini belu di validasi ke database hanya membandingkan dengan username : 'dar' dan password 'dar' 
+/// Fungsi untuk menangani data input dari form login
+/// sekarang ini belu di validasi ke database hanya membandingkan dengan username : 'dar' dan password 'dar'
 #[component]
-pub fn LoginPage()->Element  {
-
-  let mut  hande_data  = use_signal(|| HandleData {
+pub fn LoginPage() -> Element {
+    let mut hande_data = use_signal(|| HandleData {
         email: String::new(),
         password: String::new(),
-        username : String::new(),
+        username: String::new(),
     });
-    // untuk 
+    // untuk
     let mut info_popup = use_signal(|| String::from(""));
-   
 
     let nav = use_navigator();
 
-    let tets_username : &str = "dar";
-    let tets_password : &str = "dar";
-    let tes_email :&str = "dar@gamil.com";
-
+    let tets_username: &str = "dar";
+    let tets_password: &str = "dar";
+    let tes_email: &str = "dar@gamil.com";
 
     rsx! {
         section { class: "flex justify-center items-center fixed top-0 left-0 w-screen h-screen bg-[linear-gradient(135deg,#e8e8e8_0%,#f5f5f5_50%,#d3d3d3_100%)] z-[100]",
@@ -40,7 +34,6 @@ pub fn LoginPage()->Element  {
                 button {
                     r#type: "button",
                     class: "absolute top-4 left-4 px-4 py-2 bg-[rgba(51,50,50,0.9)] text-white border-none rounded-lg text-[0.9rem] cursor-pointer transition-all duration-300 backdrop-blur-[5px]",
-
                     onclick: move |_| {
                         nav.go_back();
                     },
@@ -191,7 +184,4 @@ pub fn LoginPage()->Element  {
             }
         }
     }
-
-    }
-    
-
+}

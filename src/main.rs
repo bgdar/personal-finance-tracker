@@ -4,15 +4,15 @@ use dioxus:: prelude::*;
 mod components;
 mod pages;
 mod database;
+mod server;
 
-use components::route::Route;
+use server::route::Route;
 
 fn main() {
    
     dioxus::launch(app);
         
 }
-   
 
 #[component]
 fn app() -> Element {
